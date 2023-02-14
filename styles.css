@@ -8,3 +8,26 @@ h1 {
     color: white;
 }
 
+.weather-box{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#today{
+    margin: 10px;
+}
+
+#forecast {
+    display: flex;
+}
+
+.forecastDay {
+    margin: 10px;
+}
+
+
+
+
+
+
+

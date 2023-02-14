@@ -77,18 +77,74 @@ function getWeather() {
         return res.json();
     }).then(function(data) {
         console.log(data);
+        renderToday(data);
         getForecast();
     }).catch(function (err) {
         console.error(err);
     });
 }
 
+function renderToday(data) {
+    if(todaySection.hasChildNodes()){
+        todaySection.innerHTML = "";
+    }
+
+    var card = document.createElement("div");
+    var title = document.createElement("h2");
+    var temp = document.createElement("p");
+    var wind = document.createElement("p");
+    var humidity = document.createElement("p");
+
+    title.textContent = `${currentCity} (Date)`;
+    temp.textContent = `Temp: ${data.main.temp}\u00B0F`;
+    wind.textContent = `Wind: ${data.wind.speed} MPH`;
+    humidity.textContent = `Humidity: ${data.main.humidity}%`;
+
+    todaySection.appendChild(card);
+    card.appendChild(title);
+    card.appendChild(temp);
+    card.appendChild(wind);
+    card.appendChild(humidity);
+}
+
+function renderForecast(data) {
+    if(forecastSection.hasChildNodes()){
+        forecastSection.innerHTML = "";
+    }
+
+    var title = document.createElement("h2");
+    title.textContent = "Forecast";
+    forecastSection.appendChild(title);
+    
+    for(var i=0; i<5; i++){
+        var card = document.createElement("div");
+        var cardTitle = document.createElement("h3");
+        var temp = document.createElement("p");
+        var wind = document.createElement("p");
+        var humidity = document.createElement("p");
+        var cardDate = data.list[i].dt_txt.split(" ");
+
+        card.classList.add("forecastDay");
+        cardTitle.textContent = cardDate[0];
+        temp.textContent = `Temp: ${data.list[i].main.temp}\u00B0F`;
+        wind.textContent = `Wind: ${data.list[i].wind.speed} MPH`;
+        humidity.textContent = `Humidity: ${data.list[i].main.humidity}%`;
+
+        forecastSection.appendChild(card);
+        card.appendChild(cardTitle);
+        card.appendChild(temp);
+        card.appendChild(wind);
+        card.appendChild(humidity);
+    } 
+}
+
+
 function getForecast() {
     var apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${cityLat}&lon=${cityLon}&appid=${apiKey}&units=imperial`;
     fetch(apiUrl).then(function(res) {
         return res.json();
     }).then(function(data) {
-        console.log(data);
+        renderForecast(data);
     }).catch(function (err) {
         console.error(err);
     });
