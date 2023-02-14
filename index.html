@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css" />
     <title>Weather Dashboard</title>
 </head>
 <body>
@@ -13,7 +14,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <aside>
+            <aside class="col-lg-3">
                 <h2>Search for a City:</h2>
                 <form id="search-form">
                     <input
@@ -27,9 +28,14 @@
                         Search
                     </button>
                 </form>
+                <div id="seach-history">
+                    <p>Search history</p>
+                    <ul id="history-list"></ul>
+                </div>
             </aside>
-            <div id="seach-history">
-                <p>Search history</p>
+            <div class="col-lg-9">
+                <div id="today"></div>
+                <div id="forecast"></div>
             </div>
         </div>
         <div>

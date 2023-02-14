@@ -1,0 +1,10 @@
+header {
+    background-image: linear-gradient(to right, rgb(40, 123, 224), rgb(3, 45, 180));
+    padding: 2%;
+    text-align: center;
+}
+
+h1 {
+    color: white;
+}
+
