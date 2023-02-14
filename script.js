@@ -53,7 +53,7 @@ function handleSubmit(event) {
 }
 
 function getCityCoords() {
-    var apiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${currentCity}&limit=5&appid=${apiKey}`;
+    var apiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${currentCity}&limit=5&appid=${apiKey}`;
 
     fetch(apiUrl).then(function(res) {
         return res.json();
