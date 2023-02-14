@@ -6,8 +6,10 @@ When a user loads the page they are presented with the option to search for a ci
 
 ## Links
 
-Link to the repository -
+Link to the repository - https://github.com/Daniel-robe/Checking_The_Weather
 
-Link to the live site -
+Link to the live site - https://daniel-robe.github.io/Checking_The_Weather/
 
 ## Screenshot
+
+![Screenshot One](./assets/screenshot-one.JPG)
